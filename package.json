@@ -1,0 +1,15 @@
+{
+  "name": "jcc-esports-site",
+  "version": "1.0.0",
+  "description": "Website for Johnston Community College E-Sports.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.js"
+  },
+  "author": "William Jackson",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}
