@@ -1,23 +1,67 @@
 <head>
+    <script src = "schedule-data.js"></script>
     <script src = "index.js"></script>
     <link rel = "stylesheet" href = "styles.css">
 </head>
 <body>
+    <div id = 'bgfilter'></div>
     <div class = "page" id = "home">
-        <h1>E-Sports at Johnston Community College</h1>
-        <p>idk some boring paragraph that nobody reads lol</p>
+        <div class = "pagecenter">
+            <h1>Jaguar Esports</h1>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Y4hzwrxACNs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p>
+                Founded in 2021, the JCC Jaguars have over 20 student-athletes competing in 4 major titles: Rocket League, Overwatch, Super Smash Bros., and Rainbow Six Siege.
+                The campus features a gaming room with 6 high end Alienware PCs, Two TVs, a separate announcer's booth, and (most importantly) rainbow LED lighting.
+                The Jaguars compete in the NJCAA, fielding strong teams in all four games. The spring 2022 season begins February 14th! <b>Lets go Jags!</b>
+            </p>
+        </div>
     </div>
     <div class = "page" id = "rosters">
-        <p>this is content on the rosters page.</p>
+        <div class = "pagecenter">
+            <h1>Rosters</h1>
+        </div>
     </div>
     <div class = "page" id = "schedule">
-        <p>this is content on the schedule page.</p>
+        <div class = "pagecenter">
+            <h1>Schedule</h1>
+            <div class = "gameselector">
+                <image id = "ow-schedule-selector" onclick = "buttonOverwatchSchedule()" class = "icon" src = "assets/overwatch-logo.png"></image>
+                <image id = "r6-schedule-selector" onclick = "buttonRainbowsixSchedule()" class = "icon" src = "assets/r6-logo.png"></image>
+                <image id = "rl-schedule-selector" onclick = "buttonRocketleagueSchedule()" class = "icon" src = "assets/rocket-league-logo.png"></image>
+                <image id = "sm-schedule-selector" onclick = "buttonSmashSchedule()" class = "icon" src = "assets/smash-logo.png"></image>
+            </div>
+            <div class = "schedule" id = "schedule-overwatch"></div>
+            <div class = "schedule" id = "schedule-rocketleague"></div>
+            <div class = "schedule" id = "schedule-rainbowsix"></div>
+            <div class = "schedule" id = "schedule-smash"></div>
+            <div id = "spacer"></div>
+        </div>
     </div>
     <div class = "page" id = "watch">
-        <p>this is content on the watch page.</p>
+        <div class = "pagecenter">
+            <h1>Stream Schedule: (Eastern Time)</h1>
+            <p>
+                Rocket League: Mondays at 7:00pm <br> Rainbow 6 Siege: Tuesdays at 7:00pm <br> Overwatch: Fridays at 7:00pm <br> Smash: Not streamed <br><br>
+                watch us live at <a href = "https://www.twitch.tv/thejaguaresports" target="_blank" rel="noopener noreferrer">twitch.tv/thejaguaresports</a>. To see VODs of past games, check out <a href = "https://www.twitch.tv/thejaguaresports/videos" target="_blank" rel="noopener noreferrer">this link.</a>
+            </p>
+        </div>
     </div>
     <div class = "page" id = "interest-form">
-        <p>this is content on the interest form page.</p>
+        <div class = "pagecenter">
+            <p>
+                <b>Current and future JCC students who are interested in playing any of the following titles:</b><br>
+                &emsp;•Apex Legends<br>
+                &emsp;•Call of Duty (incl. Warzone)<br>
+                &emsp;•FIFA<br>
+                &emsp;•NBA 2k<br>
+                &emsp;•Overwatch<br>
+                &emsp;•Rainbow Six Siege<br>
+                &emsp;•Rocket League<br>
+                &emsp;•Super Smash Bros. Ultimate<br>
+                <br>
+                <b>please fill out the <a href = "https://form.jotform.com/derrick1914/student-athlete-questionaire-esport" target="_blank" rel="noopener noreferrer">interest form</a> here.</b>
+            </p>
+        </div>
     </div>
 
     <div id = "navbar">

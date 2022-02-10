@@ -14,13 +14,21 @@ window.onload = function() {
     elements.schedulePage = document.getElementById("schedule");
     elements.watchPage = document.getElementById("watch");
     elements.interestPage = document.getElementById("interest-form");
+    elements.owScheduleButton = document.getElementById("ow-schedule-selector");
+    elements.r6ScheduleButton = document.getElementById("r6-schedule-selector");
+    elements.rlScheduleButton = document.getElementById("rl-schedule-selector");
+    elements.smScheduleButton = document.getElementById("sm-schedule-selector");
+    elements.owSchedulePage = document.getElementById("schedule-overwatch");
+    elements.r6SchedulePage = document.getElementById("schedule-rainbowsix");
+    elements.rlSchedulePage = document.getElementById("schedule-rocketleague");
+    elements.smSchedulePage= document.getElementById("schedule-smash");
 
     buttonHome();
+    getScheduleData();
 }
 
 //Button onclick functions
 function buttonHome() {
-    console.log("home button pressed!");
     decolorNavbarButtons();
     elements.homeButton.style.backgroundColor = NAVBAR_SELECTED_BG_COLOR;
     elements.navBar.style.boxShadow = "0px 5px 5px var(--color-yellow)";
@@ -29,7 +37,6 @@ function buttonHome() {
 }
 
 function buttonRosters() {
-    console.log("rosters button pressed!");
     decolorNavbarButtons();
     elements.rostersButton.style.color = "var(--color-yellow)";
     elements.rostersButton.style.backgroundColor = NAVBAR_SELECTED_BG_COLOR;
@@ -37,7 +44,6 @@ function buttonRosters() {
 }
 
 function buttonSchedule() {
-    console.log("schedule button pressed!");
     decolorNavbarButtons();
     elements.scheduleButton.style.color = "var(--color-yellow)";
     elements.scheduleButton.style.backgroundColor = NAVBAR_SELECTED_BG_COLOR;
@@ -45,20 +51,129 @@ function buttonSchedule() {
 }
 
 function buttonWatch() {
-    console.log("watch button pressed!");
     decolorNavbarButtons();
     elements.watchButton.style.color = "var(--color-yellow)";
     elements.watchButton.style.backgroundColor = NAVBAR_SELECTED_BG_COLOR;
     elements.watchPage.style.display = "block";
 }
 function buttonInterest() {
-    console.log("interest form button pressed!");
     decolorNavbarButtons();
     elements.interestButton.style.color = "var(--color-yellow)";
     elements.interestButton.style.backgroundColor = NAVBAR_SELECTED_BG_COLOR;
     elements.interestPage.style.display = "block";
 }
+function buttonOverwatchSchedule() {
+    decolorScheduleIcons();
+    elements.owScheduleButton.className = "icon-selected";
+    elements.owSchedulePage.style.display = "block";
+}
+function buttonRocketleagueSchedule() {
+    decolorScheduleIcons();
+    elements.rlScheduleButton.className = "icon-selected";
+    elements.rlSchedulePage.style.display = "block";
+}
+function buttonRainbowsixSchedule() {
+    decolorScheduleIcons();
+    elements.r6ScheduleButton.className = "icon-selected";
+    elements.r6SchedulePage.style.display = "block";
+}
+function buttonSmashSchedule() {
+    decolorScheduleIcons();
+    elements.smScheduleButton.className = "icon-selected";
+    elements.smSchedulePage.style.display = "block";
+}
+//utility functions
+function addScheduleEntry(game, date, team1, t1score, team2, t2score) {
+    let matchdate = document.createElement("p");
+    matchdate.className = "date";
+    matchdate.innerHTML = date;
+    
+    let teams = document.createElement("p");
+    teams.className = "teams";
+    teams.innerHTML = team1 + " - " + team2;
 
+    let team1score = document.createElement("p");
+    team1score.className = "score";
+    team1score.innerHTML = t1score;
+
+    let team2score = document.createElement("p");
+    team2score.className = "score";
+    team2score.innerHTML = t2score;
+
+    
+    let scheduleEntry = document.createElement("div");
+    scheduleEntry.className = "entry";
+    scheduleEntry.appendChild(matchdate);
+    scheduleEntry.appendChild(team1score);
+    scheduleEntry.appendChild(teams);
+    scheduleEntry.appendChild(team2score);
+
+    let parentGameElement = "";
+    if (game == "overwatch") {
+        parentGameElement = document.getElementById("schedule-overwatch");
+    } else if (game == "rocketleague") {
+        parentGameElement = document.getElementById("schedule-rocketleague");
+    } else if (game == "smash") {
+        parentGameElement = document.getElementById("schedule-smash");
+    } else if (game == "rainbowsix") {
+        parentGameElement = document.getElementById("schedule-rainbowsix");
+    } else {
+        throw Error(`Unrecognized game name: '${game}'`);
+    }
+    parentGameElement.appendChild(scheduleEntry);
+}
+function addLabel(game, type, labelcontent) {
+    let label = 0;
+    if (type == "label") {
+        label = document.createElement("p");
+        label.innerHTML = `<b>${labelcontent}</b>`;
+        label.className = "label";
+    } else {
+        label = document.createElement("h1");
+        label.innerHTML = labelcontent;
+        label.className = "label";
+    }
+    
+    let parentGameElement = "";
+    if (game == "overwatch") {
+        parentGameElement = document.getElementById("schedule-overwatch");
+    } else if (game == "rocketleague") {
+        parentGameElement = document.getElementById("schedule-rocketleague");
+    } else if (game == "smash") {
+        parentGameElement = document.getElementById("schedule-smash");
+    } else if (game == "rainbowsix") {
+        parentGameElement = document.getElementById("schedule-rainbowsix");
+    } else {
+        throw Error(`Unrecognized game name: '${game}'`);
+    }
+    parentGameElement.appendChild(label);
+}
+function getScheduleData() {
+    //reads the data contained in the SCHEDULE variable
+    let entries = SCHEDULE.split(";");
+    for (let i = 0; i < entries.length; i++) {
+        entries[i] = entries[i].split(",");
+        for (let j = 0; j < entries[i].length; j++) {
+            entries[i][j] = entries[i][j].trim();
+        }
+        console.log(entries[i]);
+        let game = entries[i][0];
+        if (entries[i][1] == "label" || entries[i][1] == "header") {
+            //add label function
+            let labelcontent = entries[i][2];
+            addLabel(game, entries[i][1], labelcontent);
+        } else {
+            //add schedule entry function
+            let date = entries[i][1];
+            let team1 = entries[i][2];
+            let team1score = entries[i][3];
+            let team2 = entries[i][4];
+            let team2score = entries[i][5];
+
+            addScheduleEntry(game, date, team1, team1score, team2, team2score);
+        }
+    }
+}
 //misc. functions
 function decolorNavbarButtons() {
     elements.rostersButton.style.color = "";
@@ -71,7 +186,7 @@ function decolorNavbarButtons() {
     elements.interestButton.style.backgroundColor = "";
     elements.homeButton.style.backgroundColor = "";
     elements.navBar.style.boxShadow = "";
-    elements.homePage.style.display = "";
+    elements.homePage.style.display = "none";
     elements.rostersPage.style.display = "";
     elements.schedulePage.style.display = "";
     elements.watchPage.style.display = "";
@@ -80,4 +195,14 @@ function decolorNavbarButtons() {
 
 function setCssProperty(name, value) {
     document.querySelector(':root').style.setProperty(name, value);
+}
+function decolorScheduleIcons() {
+    elements.owScheduleButton.className = "icon";
+    elements.rlScheduleButton.className = "icon";
+    elements.r6ScheduleButton.className = "icon";
+    elements.smScheduleButton.className = "icon";
+    elements.owSchedulePage.style.display = "";
+    elements.rlSchedulePage.style.display = "";
+    elements.r6SchedulePage.style.display = "";
+    elements.smSchedulePage.style.display = "";
 }
