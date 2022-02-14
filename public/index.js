@@ -14,17 +14,30 @@ window.onload = function() {
     elements.schedulePage = document.getElementById("schedule");
     elements.watchPage = document.getElementById("watch");
     elements.interestPage = document.getElementById("interest-form");
+    
     elements.owScheduleButton = document.getElementById("ow-schedule-selector");
     elements.r6ScheduleButton = document.getElementById("r6-schedule-selector");
     elements.rlScheduleButton = document.getElementById("rl-schedule-selector");
     elements.smScheduleButton = document.getElementById("sm-schedule-selector");
+    
     elements.owSchedulePage = document.getElementById("schedule-overwatch");
     elements.r6SchedulePage = document.getElementById("schedule-rainbowsix");
     elements.rlSchedulePage = document.getElementById("schedule-rocketleague");
     elements.smSchedulePage= document.getElementById("schedule-smash");
+    
+    elements.owRosterPage = document.getElementById("roster-overwatch");
+    elements.r6RosterPage = document.getElementById("roster-rainbowsix");
+    elements.rlRosterPage = document.getElementById("roster-rocketleague");
+    elements.smRosterPage= document.getElementById("roster-smash");
+    
+    elements.owRosterButton = document.getElementById("ow-roster-selector");
+    elements.r6RosterButton = document.getElementById("r6-roster-selector");
+    elements.rlRosterButton = document.getElementById("rl-roster-selector");
+    elements.smRosterButton = document.getElementById("sm-roster-selector");
 
     buttonHome();
     getScheduleData();
+    getRosterData();
 }
 
 //Button onclick functions
@@ -82,6 +95,26 @@ function buttonSmashSchedule() {
     elements.smScheduleButton.className = "icon-selected";
     elements.smSchedulePage.style.display = "block";
 }
+function buttonOverwatchRoster() {
+    decolorRosterIcons();
+    elements.owRosterButton.className = "icon-selected";
+    elements.owRosterPage.style.display = "flex";
+}
+function buttonRocketleagueRoster() {
+    decolorRosterIcons();
+    elements.rlRosterButton.className = "icon-selected";
+    elements.rlRosterPage.style.display = "flex";
+}
+function buttonRainbowsixRoster() {
+    decolorRosterIcons();
+    elements.r6RosterButton.className = "icon-selected";
+    elements.r6RosterPage.style.display = "flex";
+}
+function buttonSmashRoster() {
+    decolorRosterIcons();
+    elements.smRosterButton.className = "icon-selected";
+    elements.smRosterPage.style.display = "flex";
+}
 //utility functions
 function addScheduleEntry(game, date, team1, t1score, team2, t2score) {
     let matchdate = document.createElement("p");
@@ -118,9 +151,55 @@ function addScheduleEntry(game, date, team1, t1score, team2, t2score) {
     } else if (game == "rainbowsix") {
         parentGameElement = document.getElementById("schedule-rainbowsix");
     } else {
-        throw Error(`Unrecognized game name: '${game}'`);
+        return(`Unrecognized game name: '${game}'`);
     }
     parentGameElement.appendChild(scheduleEntry);
+}
+function addPlayerEntry(game, gamertag, realname, role, pfp="default.jpg") {
+    let playerEntry = document.createElement("div");
+    playerEntry.className = "player";
+
+    let playerPfp = document.createElement("img");
+    playerPfp.className = "pfp";
+    playerPfp.src = "assets/" + pfp;
+
+    let nameBlock = document.createElement("div");
+    nameBlock.className = "player-name-block";
+
+    let gamerTag = document.createElement("p");
+    gamerTag.className = "gamertag";
+    if (role == "captain") {
+        gamerTag.innerHTML = gamertag + " ★";
+    } else if (role == "sub") {
+        gamerTag.innerHTML = gamertag + " ˢ";
+    } else {
+        gamerTag.innerHTML = gamertag;
+    }
+
+    let realName = document.createElement("p");
+    realName.className = "real-name";
+    realName.innerHTML = realname;
+
+    nameBlock.appendChild(gamerTag);
+    nameBlock.appendChild(realName);
+
+    playerEntry.appendChild(playerPfp);
+    playerEntry.appendChild(nameBlock);
+
+    let parentGameElement = "";
+    if (game == "overwatch") {
+        parentGameElement = document.getElementById("roster-overwatch");
+    } else if (game == "rocketleague") {
+        parentGameElement = document.getElementById("roster-rocketleague");
+    } else if (game == "smash") {
+        parentGameElement = document.getElementById("roster-smash");
+    } else if (game == "rainbowsix") {
+        parentGameElement = document.getElementById("roster-rainbowsix");
+    } else {
+        return (`Unrecognized game name: '${game}'`);
+    }
+    parentGameElement.appendChild(playerEntry);
+
 }
 function addLabel(game, type, labelcontent) {
     let label = 0;
@@ -148,6 +227,25 @@ function addLabel(game, type, labelcontent) {
     }
     parentGameElement.appendChild(label);
 }
+function addGameHeader(game, labelcontent) {
+    let label = document.createElement("h1");
+    label.innerHTML = labelcontent;
+    label.className = "label";
+    
+    let parentGameElement = "";
+    if (game == "overwatch") {
+        parentGameElement = document.getElementById("roster-overwatch");
+    } else if (game == "rocketleague") {
+        parentGameElement = document.getElementById("roster-rocketleague");
+    } else if (game == "smash") {
+        parentGameElement = document.getElementById("roster-smash");
+    } else if (game == "rainbowsix") {
+        parentGameElement = document.getElementById("roster-rainbowsix");
+    } else {
+        throw Error(`Unrecognized game name: '${game}'`);
+    }
+    parentGameElement.appendChild(label);
+}
 function getScheduleData() {
     //reads the data contained in the SCHEDULE variable
     let entries = SCHEDULE.split(";");
@@ -156,7 +254,6 @@ function getScheduleData() {
         for (let j = 0; j < entries[i].length; j++) {
             entries[i][j] = entries[i][j].trim();
         }
-        console.log(entries[i]);
         let game = entries[i][0];
         if (entries[i][1] == "label" || entries[i][1] == "header") {
             //add label function
@@ -171,6 +268,30 @@ function getScheduleData() {
             let team2score = entries[i][5];
 
             addScheduleEntry(game, date, team1, team1score, team2, team2score);
+        }
+    }
+}
+function getRosterData() {
+    //reads the data contained in the ROSTERS variable
+    let entries = ROSTERS.split(";");
+    for (let i = 0; i < entries.length; i++) {
+        entries[i] = entries[i].split(",");
+        for (let j = 0; j < entries[i].length; j++) {
+            entries[i][j] = entries[i][j].trim();
+        }
+        let game = entries[i][0];
+        if (entries[i][1] == "header") {
+            //add header function
+            let labelcontent = entries[i][2];
+            addGameHeader(game, labelcontent);
+        } else {
+            //add roster entry function
+            let gamertag = entries[i][1];
+            let realname = entries[i][2];
+            let role = entries[i][3];
+            let pfp = entries[i][4];
+
+            addPlayerEntry(game, gamertag, realname, role, pfp);
         }
     }
 }
@@ -205,4 +326,14 @@ function decolorScheduleIcons() {
     elements.rlSchedulePage.style.display = "";
     elements.r6SchedulePage.style.display = "";
     elements.smSchedulePage.style.display = "";
+}
+function decolorRosterIcons() {
+    elements.owRosterButton.className = "icon";
+    elements.rlRosterButton.className = "icon";
+    elements.r6RosterButton.className = "icon";
+    elements.smRosterButton.className = "icon";
+    elements.owRosterPage.style.display = "";
+    elements.rlRosterPage.style.display = "";
+    elements.r6RosterPage.style.display = "";
+    elements.smRosterPage.style.display = "";
 }

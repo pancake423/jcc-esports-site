@@ -126,6 +126,38 @@ p {
 }
 .label {
     text-align: center;
+    width: 100%;
+}
+.pfp {
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.real-name {
+    font-size: 1em;
+    margin: 0;
+}
+.player {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #bababa;
+    padding: 0.5em;
+    border-radius: 1em;
+    margin: 1em;
+    width: 40%;
+}
+.roster {
+    display: none;
+    flex-wrap:  wrap;
+}
+.gamertag {
+    font-size: 1.25em;
+    margin: 0;
+}
+.player-name-block {
+    margin-left: 2em;
 }
 #navbar {
     width: 100%;
