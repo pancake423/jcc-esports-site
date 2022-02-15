@@ -9,7 +9,7 @@ rocketleague, 2/07/2022, Johnston CC, 3, Carl Albert State College, 0;
 
 rocketleague, label, Regular Season;
 
-rocketleague, 2/14/2022, Johnston CC, 0, Utah State University Eastern, 0;
+rocketleague, 2/14/2022, Johnston CC, 3, Utah State University Eastern, 0;
 rocketleague, 2/21/2022, Johnston CC, , BYE, ;
 rocketleague, 2/28/2022, Johnston CC, 0, MBCC Bucaneers, 0;
 rocketleague, 3/07/2022, Johnston CC, 0, Wake Tech. Blue, 0;

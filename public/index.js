@@ -1,7 +1,8 @@
+const NUM_ARTICLES = 1;
 const NAVBAR_SELECTED_BG_COLOR = "#222222";
 var elements = {};
 
-window.onload = function() {
+window.addEventListener('DOMContentLoaded', (event) => {
     let navbuttons = document.getElementsByClassName("navbar-button");
     elements.rostersButton = navbuttons[0];
     elements.scheduleButton = navbuttons[1];
@@ -38,7 +39,8 @@ window.onload = function() {
     buttonHome();
     getScheduleData();
     getRosterData();
-}
+    buttonShowHide(NUM_ARTICLES - 1);
+});
 
 //Button onclick functions
 function buttonHome() {
@@ -114,6 +116,25 @@ function buttonSmashRoster() {
     decolorRosterIcons();
     elements.smRosterButton.className = "icon-selected";
     elements.smRosterPage.style.display = "flex";
+}
+function buttonShowHide(id) {
+    /*
+    shows the corresponding article. ID is the index of "article-content" elements, but reversed. (zero is the last element,
+    one is second to last, etc.) also flips the corresponding button from show to hide or vice versa.
+    */
+   let buttons = document.getElementsByClassName("show-more-less");
+   let button = buttons[buttons.length - 1 - id];
+
+   let articles = document.getElementsByClassName("article-content");
+   let article = articles[articles.length - 1 - id];
+
+   if (button.innerHTML == "Show More") {
+       button.innerHTML = "Show Less";
+       article.style.display = "block";
+   } else {
+       button.innerHTML = "Show More";
+       article.style.display = "none";
+   }
 }
 //utility functions
 function addScheduleEntry(game, date, team1, t1score, team2, t2score) {

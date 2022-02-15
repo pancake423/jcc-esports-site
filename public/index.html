@@ -4,16 +4,32 @@
     <link rel = "stylesheet" href = "styles.css">
 </head>
 <body>
-    <div id = 'bgfilter'></div>
+    <div id = "bgimage" class = "background"></div>
+    <div id = 'bgfilter' class = "background"></div>
+    <div id = "pagebg"></div>
     <div class = "page" id = "home">
         <div class = "pagecenter">
-            <h1>Jaguar Esports</h1>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/Y4hzwrxACNs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <p>
-                Founded in 2021, the JCC Jaguars have over 20 student-athletes competing in 4 major titles: Rocket League, Overwatch, Super Smash Bros., and Rainbow Six Siege.
-                The campus features a gaming room with 6 high end Alienware PCs, Two TVs, a separate announcer's booth, and (most importantly) rainbow LED lighting.
-                The Jaguars compete in the NJCAA, fielding strong teams in all four games. The spring 2022 season begins February 14th! <b>Lets go Jags!</b>
-            </p>
+            <h1>Jaguar E-sports</h1>
+            <div class = "article">
+                <div class = "article-header">
+                    <h1 class="article-title">Introducing JCC E-sports</h1>
+                    <p class="article-author">William Jackson</p>
+                    <button class="show-more-less" onclick = "buttonShowHide(0)">Show More</button>
+                </div>
+                <div class = "article-content">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/Y4hzwrxACNs" title="YouTube video player"
+                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                    <p>
+                        Founded in 2021, the JCC Jaguars have over 20 student-athletes competing in 4 major titles: Rocket League,
+                        Overwatch, Super Smash Bros., and Rainbow Six Siege.
+                        The campus features a gaming room with 6 high end Alienware PCs, Two TVs, a separate announcer's booth, and (most
+                        importantly) rainbow LED lighting.
+                        The Jaguars compete in the NJCAA, fielding strong teams in all four games. The spring 2022 season begins February
+                        14th! <b>Lets go Jags!</b>
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
     <div class = "page" id = "rosters">
@@ -29,7 +45,6 @@
             <div class = "roster", id = "roster-rainbowsix"></div>
             <div class = "roster", id = "roster-rocketleague"></div>
             <div class = "roster", id = "roster-smash"></div>
-            <div id = "spacer"></div>
         </div>
     </div>
     <div class = "page" id = "schedule">
@@ -45,7 +60,6 @@
             <div class = "schedule" id = "schedule-rocketleague"></div>
             <div class = "schedule" id = "schedule-rainbowsix"></div>
             <div class = "schedule" id = "schedule-smash"></div>
-            <div id = "spacer"></div>
         </div>
     </div>
     <div class = "page" id = "watch">
@@ -59,6 +73,7 @@
     </div>
     <div class = "page" id = "interest-form">
         <div class = "pagecenter">
+            <h1>Interest Form</h1>
             <p>
                 <b>Current and future JCC students who are interested in playing any of the following titles:</b><br>
                 &emsp;•Apex Legends<br>
