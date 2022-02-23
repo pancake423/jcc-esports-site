@@ -245,7 +245,7 @@ p {
 }
 #disclaimer {
   position: fixed;
-  width: 300px;
+  width: 100px;
   height: 25px;
   right: 0;
   bottom: 0;
@@ -260,6 +260,7 @@ p {
 }
 #disclaimer:hover {
   height: 100px;
+  width: 300px;
 }
 
 #disclaimer-text {
