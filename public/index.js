@@ -48,6 +48,7 @@ function buttonHome() {
     elements.homeButton.style.backgroundColor = NAVBAR_SELECTED_BG_COLOR;
     elements.navBar.style.boxShadow = "0px 5px 5px var(--color-yellow)";
     elements.homePage.style.display = "block";
+    document.title = "Jaguar E-sports: Home";
 
 }
 
@@ -56,6 +57,7 @@ function buttonRosters() {
     elements.rostersButton.style.color = "var(--color-yellow)";
     elements.rostersButton.style.backgroundColor = NAVBAR_SELECTED_BG_COLOR;
     elements.rostersPage.style.display = "block";
+    document.title = "Jaguar E-sports: Rosters";
 }
 
 function buttonSchedule() {
@@ -63,6 +65,7 @@ function buttonSchedule() {
     elements.scheduleButton.style.color = "var(--color-yellow)";
     elements.scheduleButton.style.backgroundColor = NAVBAR_SELECTED_BG_COLOR;
     elements.schedulePage.style.display = "block";
+    document.title = "Jaguar E-sports: Schedule";
 }
 
 function buttonWatch() {
@@ -70,12 +73,14 @@ function buttonWatch() {
     elements.watchButton.style.color = "var(--color-yellow)";
     elements.watchButton.style.backgroundColor = NAVBAR_SELECTED_BG_COLOR;
     elements.watchPage.style.display = "block";
+    document.title = "Jaguar E-sports: Watch";
 }
 function buttonInterest() {
     decolorNavbarButtons();
     elements.interestButton.style.color = "var(--color-yellow)";
     elements.interestButton.style.backgroundColor = NAVBAR_SELECTED_BG_COLOR;
     elements.interestPage.style.display = "block";
+    document.title = "Jaguar E-sports: Interest";
 }
 function buttonOverwatchSchedule() {
     decolorScheduleIcons();

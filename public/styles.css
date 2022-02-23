@@ -101,7 +101,6 @@ p {
   padding-inline: 50px;
   margin: 16px;
   border-radius: 1em;
-  height: 4em;
 }
 .score {
   color: #005da6;
@@ -139,11 +138,11 @@ p {
   padding: 0.5em;
   border-radius: 1em;
   margin: 1em;
-  width: 40%;
 }
 .roster {
   display: none;
   flex-wrap: wrap;
+  justify-content: left;
 }
 .gamertag {
   font-size: 1.25em;
@@ -236,7 +235,7 @@ p {
 #pagebg {
   background-color: white;
   width: 70vw;
-  height: 100vw;
+  height: 100vh;
   position: fixed;
   left: 50vw;
   top: 50vh;

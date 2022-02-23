@@ -33,6 +33,13 @@ overwatch, 4/15/2022, Johnston CC, 0, Dallas College North Lake, 0;
 
 rainbowsix, header, JCC Rainbow Six Siege (0-1);
 rainbowsix, label, Regular Season;
+rainbowsix, 2/15/2022, Johnston CC, 1, Hocking College Hawks, 2;
+rainbowsix, 2/22/2022, Johnston CC, 0, Kish Kougars, 0;
+rainbowsix, 3/01/2022, Johnston CC, 0, Garden City CC Gold, 0;
+rainbowsix, 3/08/2022, Johnston CC, 0, Iowa Western Reivers, 0;
+rainbowsix, 3/15/2022, Johnston CC, 0, WSU Tech Esports, 0;
+rainbowsix, 3/22/2022, Johnston CC, 0, Northern Virginia CC, 0;
+rainbowsix, 3/29/2022, Johnston CC, , BYE, ;
 
 
 smash, header, JCC Smash;
