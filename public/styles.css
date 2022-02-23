@@ -243,3 +243,26 @@ p {
   padding-inline: 4em;
   box-shadow: 0px 0px 5px black;
 }
+#disclaimer {
+  position: fixed;
+  width: 300px;
+  height: 25px;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  border: 1px solid black;
+  font-family: "Mohave";
+  border-top-left-radius: 1em;
+  z-index: 99999;
+  transition-duration: 0.25s;
+  padding: 16px;
+
+}
+#disclaimer:hover {
+  height: 100px;
+}
+
+#disclaimer-text {
+  margin-top: 0px;
+  margin-left: 1em;
+}

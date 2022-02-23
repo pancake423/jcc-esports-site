@@ -31,10 +31,10 @@ overwatch, 4/1/2022, Johnston CC, 0, Suffolk CC, 0;
 overwatch, 4/08/2022, Johnston CC, 0, Jackson College: Jets, 0;
 overwatch, 4/15/2022, Johnston CC, 0, Dallas College North Lake, 0;
 
-rainbowsix, header, JCC Rainbow Six Siege (0-1);
+rainbowsix, header, JCC Rainbow Six Siege (0-2);
 rainbowsix, label, Regular Season;
 rainbowsix, 2/15/2022, Johnston CC, 1, Hocking College Hawks, 2;
-rainbowsix, 2/22/2022, Johnston CC, 0, Kish Kougars, 0;
+rainbowsix, 2/22/2022, Johnston CC, 0, Kish Kougars, 2;
 rainbowsix, 3/01/2022, Johnston CC, 0, Garden City CC Gold, 0;
 rainbowsix, 3/08/2022, Johnston CC, 0, Iowa Western Reivers, 0;
 rainbowsix, 3/15/2022, Johnston CC, 0, WSU Tech Esports, 0;
