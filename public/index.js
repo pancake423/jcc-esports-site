@@ -1,4 +1,4 @@
-const NUM_ARTICLES = 11;
+const NUM_ARTICLES = 12;
 const NAVBAR_SELECTED_BG_COLOR = "#222222";
 var elements = {};
 
@@ -15,22 +15,22 @@ window.addEventListener('DOMContentLoaded', (event) => {
     elements.schedulePage = document.getElementById("schedule");
     elements.watchPage = document.getElementById("watch");
     elements.interestPage = document.getElementById("interest-form");
-    
+
     elements.owScheduleButton = document.getElementById("ow-schedule-selector");
     elements.r6ScheduleButton = document.getElementById("r6-schedule-selector");
     elements.rlScheduleButton = document.getElementById("rl-schedule-selector");
     elements.smScheduleButton = document.getElementById("sm-schedule-selector");
-    
+
     elements.owSchedulePage = document.getElementById("schedule-overwatch");
     elements.r6SchedulePage = document.getElementById("schedule-rainbowsix");
     elements.rlSchedulePage = document.getElementById("schedule-rocketleague");
     elements.smSchedulePage= document.getElementById("schedule-smash");
-    
+
     elements.owRosterPage = document.getElementById("roster-overwatch");
     elements.r6RosterPage = document.getElementById("roster-rainbowsix");
     elements.rlRosterPage = document.getElementById("roster-rocketleague");
     elements.smRosterPage= document.getElementById("roster-smash");
-    
+
     elements.owRosterButton = document.getElementById("ow-roster-selector");
     elements.r6RosterButton = document.getElementById("r6-roster-selector");
     elements.rlRosterButton = document.getElementById("rl-roster-selector");
@@ -146,7 +146,7 @@ function addScheduleEntry(game, date, team1, t1score, team2, t2score) {
     let matchdate = document.createElement("p");
     matchdate.className = "date";
     matchdate.innerHTML = date;
-    
+
     let teams = document.createElement("p");
     teams.className = "teams";
     teams.innerHTML = team1 + " - " + team2;
@@ -159,7 +159,7 @@ function addScheduleEntry(game, date, team1, t1score, team2, t2score) {
     team2score.className = "score";
     team2score.innerHTML = t2score;
 
-    
+
     let scheduleEntry = document.createElement("div");
     scheduleEntry.className = "entry";
     scheduleEntry.appendChild(matchdate);
@@ -238,7 +238,7 @@ function addLabel(game, type, labelcontent) {
         label.innerHTML = labelcontent;
         label.className = "label";
     }
-    
+
     let parentGameElement = "";
     if (game == "overwatch") {
         parentGameElement = document.getElementById("schedule-overwatch");
@@ -257,7 +257,7 @@ function addGameHeader(game, labelcontent) {
     let label = document.createElement("h1");
     label.innerHTML = labelcontent;
     label.className = "label";
-    
+
     let parentGameElement = "";
     if (game == "overwatch") {
         parentGameElement = document.getElementById("roster-overwatch");
