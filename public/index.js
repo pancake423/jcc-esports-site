@@ -1,4 +1,4 @@
-const NUM_ARTICLES = 12;
+const NUM_ARTICLES = 13;
 const NAVBAR_SELECTED_BG_COLOR = "#222222";
 var elements = {};
 
